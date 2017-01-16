@@ -1,0 +1,11 @@
+'use strict';
+(function(angular){
+  	angular
+    .module('rv.views.PatentRVModulee')
+    .service('patentRVService', PatentRecordViewService);
+
+  PatentRecordViewService.$inject = [];
+
+  function PatentRecordViewService(){
+  
+  })(angular);
