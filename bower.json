@@ -1,5 +1,6 @@
 {
-  "name": "neon-platform",
+  "name": "1p-recordview",
+  "private": true,
   "version": "0.0.1",
   "description": "UI project structure",
   "repository": {
@@ -13,7 +14,10 @@
     "angular-mocks":"1.5.8",
     "karma-read-json":"1.1.0",
     "angular-ui-router": "^0.3.1",
-    "font-awesome": "^4.6.3"
+    "angular-bootstrap": "",
+    "font-awesome": "^4.6.3",
+    "angular-resource": "1.5.8",
+    "oclazyload": "^1.0.9"
   },
   "devDependencies": {},
   "overrides": {
@@ -30,4 +34,4 @@
       ]
     }
   }
-} 
+}

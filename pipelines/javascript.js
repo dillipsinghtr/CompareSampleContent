@@ -38,7 +38,7 @@ gulp.task('js:lint:local', function () {
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 
 });
-
+// 
 gulp.task('js:build:prod', ['js:lint:prod'], function () {
 
   /*jshint camelcase: false */

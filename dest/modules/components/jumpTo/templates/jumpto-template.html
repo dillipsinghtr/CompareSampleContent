@@ -1,0 +1,10 @@
+<div>
+  <nav class="">
+    <div class="container-fluid text-size12" >
+      <ul class="nav nav-pills">
+        <li style="padding: 10px 15px; ">JumpTo</li>
+        <li ng-repeat="item in vm.jumpToOptions"><a href="javascript:void(0)" ng-click="vm.jumpToLocation(item.jumpTo)" title="{{item.title}}">{{item.section}}</li>
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,28 @@
+<div id="recordListFlyOut" class="recordListFlyOut">
+  <div id="recordListPanel" class="recordListPanel" ng-show=vm.recordListLoaded>
+    <div id="findRecordTitle" class="findTxtBox-Title" >
+      <span>{{vm.selectRecordToCompareTitle}}</span>     
+    </div>
+    <div id="findRecordDiv">
+      <span ng-show="recordNumber" ng-click="recordNumber=''" class="findTxtBox-CloseImg" title="{{vm.resetFilter}}"><i class="fa fa-close fa-2x"></i></span>
+      <input type="text" ng-model="recordNumber" placeholder="&#xf002; {{vm.findLabel}}" class="findRecordTxtBox" title="{{vm.findRecordToolTip}}"/>
+    </div>
+    <div  id="recordList" class="recordList">
+      <table>
+        <tr ng-repeat="x in vm.recordNumbers | filter :{recordNumber : recordNumber}">
+          <td class="listItem selectRecordCheckBox" title="{{vm.recordListCheckBoxToolTip }}" style="cursor: pointer;"><input type="checkbox" name="recordNumber" ng-click="vm.selectRecord(x.recordNumber)"></td>
+          <td class="listItem" title="{{x.recordTitle}}" style="cursor: pointer;">{{x.recordNumber}}</td>
+        </tr>
+      </table>
+    </div>
+    <div id="findRecordTitle" style="width:100%;border:1px solid;padding: 5px 10px;height:45px;bottom: 0">
+      <span style="float:left"><button type="button" class="btn btn-default">{{vm.moreLabel}}</button></span>
+      <span style="float:right"><button type="button" class="btn btn-primary">{{vm.compareRecordLable}}</button></span>     
+    </div>
+  </div>
+  <div id="recordListloading" ng-show="!vm.recordListLoaded"
+    style="position: relative; width: 100%; height: 100%">
+    <img src="assets/img/loading.gif">{{vm.loadingText}}
+  </div>
+</div>
+
