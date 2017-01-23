@@ -13,7 +13,6 @@
       scope: {},
       bindToController: {
         fieldNames: '=',
-        totalSections: '@'
       },
       controller: rvJumpToController,
       controllerAs: 'vm',
@@ -23,21 +22,16 @@
 
   }
 
-  rvJumpToController.$inject = ['$location', '$anchorScroll'];
+  rvJumpToController.$inject = [];
 
-  function rvJumpToController($location, $anchorScroll) {
+  function rvJumpToController() {
     var vm = this; // jshint ignore:line
 
     vm.gotoAnchor = function(field) {
-      if (angular.isDefined(totalSections)) {
-        for(var i=1; i<=vm.totalSections;i++) {
-          $location.hash(field + i);
-          $anchorScroll();  
-        }
-      }else {
-        $location.hash(field);
-        $anchorScroll();  
-      }
+      //creating selector in the below format as ID's have space & cannot be accessed directly like $('#id')
+      var selector = '[id=\'' + field + '\']';
+      $(".content-display-scroll").scrollTop(0);
+      $('.content-display-scroll').animate({scrollTop:$(selector).position().top}, 'slow');
     }
   }
 
