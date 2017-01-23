@@ -4,9 +4,9 @@
 
   angular
     .module('rv.components.RVJumpToModule')
-    .directive('rvJumpTo', rvJumpTo);
+    .directive('rvJumpTo', RVJumpToField);
 
-  function rvJumpTo() {
+  function RVJumpToField() {
 
     return {
       restrict: 'AE',
