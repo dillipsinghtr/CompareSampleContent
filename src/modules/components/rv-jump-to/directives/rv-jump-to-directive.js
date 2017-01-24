@@ -14,7 +14,7 @@
       bindToController: {
         fieldNames: '=',
       },
-      controller: rvJumpToController,
+      controller: RVJumpToFieldController,
       controllerAs: 'vm',
       templateUrl: 'modules/components/rv-center/templates/rv-jump-to-template.html'
     };
@@ -22,9 +22,9 @@
 
   }
 
-  rvJumpToController.$inject = [];
+  RVJumpToFieldController.$inject = [];
 
-  function rvJumpToController() {
+  function RVJumpToFieldController() {
     var vm = this; // jshint ignore:line
 
     vm.gotoAnchor = function(field) {
