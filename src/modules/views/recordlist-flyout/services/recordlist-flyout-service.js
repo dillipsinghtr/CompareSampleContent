@@ -2,7 +2,7 @@
 (function(angular) {
   angular
   .module('rv.views.RecordListFlyOutModule')
-  .service('recordListFlyOutService', RecordListFlyOutService);
+  .service('RecordListFlyOutService', RecordListFlyOutService);
 
   RecordListFlyOutService.$inject = ['$q', '$http', 'FLYOUT_CONFIG'];
 
