@@ -30,54 +30,54 @@
     vm.compareRecordToolTip = '';
     vm.recordNumbers = [];
     vm.isEligibleToCompare = function(){
-      if(vm.selectRecordList.length >1){
-        vm.compareRecordToolTip = 'Click to compare selected records';
-        return true;
-      }else{
-        vm.compareRecordToolTip = '';
-        return false;
-      }
+        if(vm.selectRecordList.length >1){
+            vm.compareRecordToolTip = 'Click to compare selected records';
+            return true;
+        }else{
+            vm.compareRecordToolTip = '';
+            return false;
+        }
     };
     vm.isLastRecordFound = function(){
-      if(vm.recordNumbers.length === vm.totalRecords){
-        vm.moreButtonToolTip = '';
-        return true
-      }else{
-       vm.moreButtonToolTip = 'Click to see more records';
-       return false;
-     }
+        if(vm.recordNumbers.length === vm.totalRecords){
+            vm.moreButtonToolTip = '';
+            return true
+        }else{
+           vm.moreButtonToolTip = 'Click to see more records';
+           return false;
+       }
    };
    vm.selectRecord = function(recordNumber,event){
-     if(vm.selectRecordList.indexOf(recordNumber) === -1){
-      if(vm.selectRecordList.length === 4){
-        alert('You can select maximum 4 records');
-        event.preventDefault();
-      }else {
-        vm.selectRecordList.push(recordNumber);
-        console.log(vm.selectRecordList);
-      }
+       if(vm.selectRecordList.indexOf(recordNumber) === -1){
+        if(vm.selectRecordList.length === 4){
+            alert('You can select maximum 4 records');
+            event.preventDefault();
+        }else {
+            vm.selectRecordList.push(recordNumber);
+            console.log(vm.selectRecordList);
+        }
     }else{
       vm.selectRecordList.splice(vm.selectRecordList.indexOf(recordNumber), 1);
       console.log(vm.selectRecordList);  
-    }
-  };
+  }
+};
 
-  vm.fetchMoreRecords = function(){
+vm.fetchMoreRecords = function(){
     vm.recordListLoaded = false;
     RecordListFlyOutService.getRecords(vm.category,vm.resultsetId,vm.offset,vm.size,vm.totalRecords)
     .then(function (response){
-      var records = response.recordList;
-      vm.recordNumbers = vm.recordNumbers.concat(records);
-      vm.offset = vm.offset + vm.size;
-      vm.recordListLoaded = true;
+        var records = response.recordList;
+        vm.recordNumbers = vm.recordNumbers.concat(records);
+        vm.offset = vm.offset + vm.size;
+        vm.recordListLoaded = true;
     }).then(function (error){
-      console.log(error);
+        console.log(error);
     });
-  };
-  vm.compareRecords = function(){
+};
+vm.compareRecords = function(){
     alert("records are ========");
-    alert(vm.selectRecordList)
-  }
-  vm.fetchMoreRecords();
+    alert(vm.recordNumbers)
+}
+vm.fetchMoreRecords();
 }
 })(angular);
